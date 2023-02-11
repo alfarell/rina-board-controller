@@ -1,2 +1,2 @@
-export {default as HomeScreen} from './HomeScreen';
-export {default as BluetoothScreen} from './BluetoothScreen';
+export {default as HomeScreen} from './HomeScreen/HomeScreen';
+export {default as BluetoothScreen} from './BluetoothScreen/BluetoothScreen';

@@ -5,21 +5,19 @@
  * @format
  */
 
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
-import {BluetoothScreen, HomeScreen} from './Pages';
+import BleProvider from './Context/BleProvider';
+import Pages from './Pages/Pages';
+import {LogBox} from 'react-native';
+
+LogBox.ignoreLogs(['new NativeEventEmitter']); // Ignore log notification by message
+LogBox.ignoreAllLogs(); //Ignore all log notifications
 
 function App() {
-  const Stack = createNativeStackNavigator();
-
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Connect Bluetooth" component={BluetoothScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <BleProvider>
+      <Pages />
+    </BleProvider>
   );
 }
 
