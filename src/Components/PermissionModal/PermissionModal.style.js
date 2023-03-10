@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import AppColor from '../../Data/Colors';
+import {AppColor} from '../../Data/Colors';
 
 export const styles = StyleSheet.create({
   centeredView: {

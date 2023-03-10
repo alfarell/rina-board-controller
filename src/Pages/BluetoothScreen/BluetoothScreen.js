@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import CenteredModal from '../../Components/Modal/CenteredModal';
 import {BleContext} from '../../Context/BleProvider';
+import {AppColor} from '../../Data/Colors';
 
 const BluetoothScreen = ({navigation}) => {
   const {manager, devices, startScan, connectToDevice, bluetoothState} =
@@ -19,7 +20,6 @@ const BluetoothScreen = ({navigation}) => {
   const isBluetoothOff = bluetoothState === 'PoweredOff';
 
   useEffect(() => {
-    console.log('bluetooth list');
     startScan({
       openEnableModal: () => setOpenEnableModal(true),
     });
@@ -31,42 +31,57 @@ const BluetoothScreen = ({navigation}) => {
 
   return (
     <SafeAreaView>
-      <View>
+      <View style={{height: '100%', display: 'flex'}}>
         {!isBluetoothOff && <Button title="Scan" onPress={startScan} />}
         {isBluetoothOff && (
-          <Text style={{color: '#000'}}>
-            Please turn on bluetooth to connect to device.
-          </Text>
+          <View
+            style={{
+              flex: 1,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}>
+            <Text
+              style={{
+                color: '#000',
+              }}>
+              Please turn on bluetooth to connect to device.
+            </Text>
+          </View>
         )}
-        <FlatList
-          data={devices}
-          keyExtractor={(_, index) => index.toString()}
-          decelerationRate="normal"
-          numColumns={1}
-          style={{marginTop: 'auto'}}
-          renderItem={({item, index}) => {
-            return (
-              <TouchableHighlight
-                key={index}
-                activeOpacity={0.6}
-                underlayColor="#DDDDDD"
-                onPress={async () => {
-                  await connectToDevice(item, {
-                    callbback: () => navigation.navigate('Home'),
-                  });
-                }}>
-                <View>
-                  <Text style={{color: 'black'}}>{item.name}</Text>
-                  <Text style={{color: 'black'}}>{item.id}</Text>
-                </View>
-              </TouchableHighlight>
-            );
-          }}
-        />
+        {!!devices?.length && (
+          <FlatList
+            data={devices}
+            keyExtractor={(_, index) => index.toString()}
+            decelerationRate="normal"
+            numColumns={1}
+            style={{marginTop: 'auto'}}
+            renderItem={({item, index}) => {
+              return (
+                <TouchableHighlight
+                  key={index}
+                  activeOpacity={0.6}
+                  underlayColor="#DDDDDD"
+                  onPress={async () => {
+                    await connectToDevice(item, {
+                      callbback: () => navigation.navigate('Home'),
+                    });
+                  }}>
+                  <View>
+                    <Text style={{color: 'black'}}>{item.name}</Text>
+                    <Text style={{color: 'black'}}>{item.id}</Text>
+                  </View>
+                </TouchableHighlight>
+              );
+            }}
+          />
+        )}
       </View>
 
       <CenteredModal visible={openEnableModal}>
-        <Text style={{color: '#000'}}>Need to enable the bluetooth.</Text>
+        <Text style={{color: '#000', marginBottom: 30}}>
+          Need to enable the bluetooth.
+        </Text>
         <View
           style={{
             display: 'flex',
@@ -75,18 +90,30 @@ const BluetoothScreen = ({navigation}) => {
             justifyContent: 'space-evenly',
           }}>
           <Pressable
-            style={{padding: 10, backgroundColor: 'blue'}}
+            style={{
+              paddingHorizontal: 30,
+              paddingVertical: 10,
+              backgroundColor: '#fff',
+              borderWidth: 1,
+              borderColor: AppColor.primary,
+              borderRadius: 5,
+            }}
             onPress={() => setOpenEnableModal(false)}>
-            <Text>Close</Text>
+            <Text style={{color: AppColor.primary}}>Close</Text>
           </Pressable>
           <Pressable
-            style={{padding: 10, backgroundColor: 'blue'}}
+            style={{
+              paddingHorizontal: 30,
+              paddingVertical: 10,
+              backgroundColor: AppColor.primary,
+              borderRadius: 5,
+            }}
             onPress={async () => {
               setOpenEnableModal(false);
               await manager.enable();
               startScan();
             }}>
-            <Text>Turn on bluetooth</Text>
+            <Text style={{color: '#fff'}}>Turn on bluetooth</Text>
           </Pressable>
         </View>
       </CenteredModal>

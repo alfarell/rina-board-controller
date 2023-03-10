@@ -195,6 +195,16 @@ const BleProvider = ({children}) => {
   };
 
   const sendFaceData = async (faceNumber, {retry = 0} = {}) => {
+    if (!connectedDevice) {
+      ToastAndroid.showWithGravity(
+        'No device connected.',
+        ToastAndroid.SHORT,
+        ToastAndroid.BOTTOM,
+      );
+
+      return;
+    }
+
     try {
       return await Promise.all(
         connectedDevice?.writeableCharacteristics?.map(async characteristic => {

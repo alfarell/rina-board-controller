@@ -1,40 +1,38 @@
-import React, {useContext, useEffect, useState} from 'react';
-import {Colors, Header} from 'react-native/Libraries/NewAppScreen';
+import React, {useContext, useState} from 'react';
 import {
-  // useColorScheme,
   SafeAreaView,
-  ScrollView,
-  StatusBar,
   Image,
   View,
   Text,
   FlatList,
   Button,
   TouchableOpacity,
+  TouchableHighlight,
 } from 'react-native';
+import {AppColor} from '../../Data/Colors';
 import {faces} from '../../Data/FaceList';
 import {BleContext} from '../../Context/BleProvider';
 
 const HomeScreen = ({navigation}) => {
-  // const isDarkMode = useColorScheme() === 'dark';
-
-  const {sendFaceData} = useContext(BleContext);
+  const {connectedDevice, sendFaceData} = useContext(BleContext);
 
   const [page, setPage] = useState(0);
 
-  const backgroundStyle = {
-    // backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
-  };
-
   return (
-    <SafeAreaView style={backgroundStyle}>
+    <SafeAreaView
+      style={{
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+      }}>
       <View>
         <Button
-          title="Connect bluetooth"
+          title={
+            connectedDevice
+              ? `Connected to: ${connectedDevice.name}`
+              : 'Connect bluetooth'
+          }
           onPress={() => navigation.push('Bluetooth')}
         />
       </View>
@@ -52,16 +50,14 @@ const HomeScreen = ({navigation}) => {
               activeOpacity={0.6}
               underlayColor="#DDDDDD"
               onPress={() => sendFaceData(Number(`${page}${index}`))}>
-              <View>
-                <Image
-                  source={item}
-                  style={{
-                    width: '100%',
-                    height: undefined,
-                    aspectRatio: 16 / 10,
-                  }}
-                />
-              </View>
+              <Image
+                source={item}
+                style={{
+                  width: '100%',
+                  height: undefined,
+                  aspectRatio: 17 / 11,
+                }}
+              />
             </TouchableOpacity>
           );
         }}
@@ -79,7 +75,9 @@ const HomeScreen = ({navigation}) => {
               key={i}
               style={{
                 padding: 10,
-                backgroundColor: 'pink',
+                borderRadius: 5,
+                backgroundColor: AppColor.primary,
+                color: '#fff',
               }}
               onPress={() => setPage(i)}>
               {i + 1}

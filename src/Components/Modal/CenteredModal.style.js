@@ -11,7 +11,8 @@ export const styles = StyleSheet.create({
     margin: 20,
     backgroundColor: 'white',
     borderRadius: 5,
-    padding: 35,
+    paddingHorizontal: 10,
+    paddingVertical: 30,
     alignItems: 'center',
     shadowColor: '#000',
     shadowOffset: {
