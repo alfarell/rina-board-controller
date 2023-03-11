@@ -69,14 +69,20 @@ const HomeScreen = ({navigation}) => {
           padding: 20,
         }}>
         {[...Array(Math.ceil(faces.length / 10))].map((_, i) => {
+          const selected = page === i;
+
           return (
             <Text
               key={i}
               style={{
                 padding: 10,
                 borderRadius: 5,
-                backgroundColor: AppColor.primary,
-                color: '#fff',
+                backgroundColor: selected ? AppColor.primary : '#fff',
+                color: selected ? '#fff' : AppColor.primary,
+                ...(!selected && {
+                  borderWidth: 1,
+                  borderColor: AppColor.primary,
+                }),
               }}
               onPress={() => setPage(i)}>
               {i + 1}

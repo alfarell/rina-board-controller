@@ -54,7 +54,7 @@ const BleProvider = ({children}) => {
         console.log('error', JSON.stringify(error));
         return;
       }
-      console.log(device.name);
+      // console.log(device.name);
 
       dispatch(addDevice(device));
 
@@ -183,10 +183,11 @@ const BleProvider = ({children}) => {
       const characteristics = characteristicsForServices?.flat(2);
       const writeableCharacteristics = characteristics?.filter(
         characteristic =>
-          characteristic.isReadable &&
-          characteristic.isWritableWithResponse &&
-          characteristic.isWritableWithoutResponse,
+          characteristic.isReadable && characteristic.isWritableWithResponse,
       );
+      // const descriptors = await Promise.all(
+      //   writeableCharacteristics?.map(async item => await item.descriptors()),
+      // );
 
       return writeableCharacteristics;
     } catch (err) {

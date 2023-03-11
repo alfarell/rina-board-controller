@@ -1,6 +1,6 @@
 export const faces = [
   {
-    value: 'e-0,b-0,m-5',
+    value: 'e-0,b-0,m-6',
     image: require('../Assets/Faces/rina-board-normal-smile.png'),
   },
   {
@@ -20,7 +20,7 @@ export const faces = [
   //   image: require('../Assets/Faces/rina-board-normal-e.png'),
   // },
   {
-    value: 'e-0,b-0,m-',
+    value: 'e-0,b-0,m-3',
     image: require('../Assets/Faces/rina-board-normal-e-2.png'),
   },
   {
@@ -32,7 +32,7 @@ export const faces = [
   //   image: require('../Assets/Faces/rina-board-normal-no-mouth.png'),
   // },
   {
-    value: 'e-1,b-0,m-5',
+    value: 'e-1,b-0,m-6',
     image: require('../Assets/Faces/rina-board-normal-2-smile.png'),
   },
   {
@@ -88,7 +88,7 @@ export const faces = [
     image: require('../Assets/Faces/rina-board-cheerful-o.png'),
   },
   {
-    value: 'e-3,b-1,m-5',
+    value: 'e-3,b-1,m-6',
     image: require('../Assets/Faces/rina-board-cheerful-smile.png'),
   },
   {
@@ -116,7 +116,7 @@ export const faces = [
     image: require('../Assets/Faces/rina-board-cheerful-s-blush-o.png'),
   },
   {
-    value: 'e-3,b-2,m-5',
+    value: 'e-3,b-2,m-6',
     image: require('../Assets/Faces/rina-board-cheerful-blush-wide-smile.png'),
   },
   {
@@ -144,7 +144,7 @@ export const faces = [
     image: require('../Assets/Faces/rina-board-cheerful-blush-o.png'),
   },
   {
-    value: 'e-2,b-0,m-5',
+    value: 'e-2,b-0,m-6',
     image: require('../Assets/Faces/rina-board-relax-smile.png'),
   },
   {
@@ -180,7 +180,7 @@ export const faces = [
     image: require('../Assets/Faces/rina-board-relax-s-blush-o.png'),
   },
   // {
-  //   value: 'e-2,b-2,m-5',
+  //   value: 'e-2,b-2,m-6',
   //   image: require('../Assets/Faces/rina-board-relax-blush-s-smile.png'),
   // },
   {
@@ -196,7 +196,7 @@ export const faces = [
     image: require('../Assets/Faces/rina-board-relax-blush-happy.png'),
   },
   {
-    value: 'e-2,b-2,m-5',
+    value: 'e-2,b-2,m-6',
     image: require('../Assets/Faces/rina-board-relax-blush-wide-smile.png'),
   },
   {
@@ -212,7 +212,7 @@ export const faces = [
     image: require('../Assets/Faces/rina-board-amazed-e.png'),
   },
   {
-    value: 'e-5,b-1,m-5',
+    value: 'e-5,b-1,m-6',
     image: require('../Assets/Faces/rina-board-amazed-s-blush-wide-smile.png'),
   },
   {
@@ -236,13 +236,13 @@ export const faces = [
     image: require('../Assets/Faces/rina-board-amazed-s-blush-o.png'),
   },
   {
-    value: 'e-6,b-1,m-5',
+    value: 'e-6,b-1,m-6',
     image: require('../Assets/Faces/rina-board-evil-smile-s-blush.png'),
   },
-  {
-    value: 'e-6,b-1,m-13',
-    image: require('../Assets/Faces/rina-board-evil-s-smile-s-blush.png'),
-  },
+  // {
+  //   value: 'e-6,b-1,m-13',
+  //   image: require('../Assets/Faces/rina-board-evil-s-smile-s-blush.png'),
+  // },
   {
     value: 'e-6,b-1,m-7',
     image: require('../Assets/Faces/rina-board-evil-happy-s-blush.png'),
@@ -304,7 +304,7 @@ export const faces = [
     image: require('../Assets/Faces/rina-board-panic-blush.png'),
   },
   {
-    value: 'e-3,b-2,m-8',
+    value: 'e-3,b-1,m-8',
     image: require('../Assets/Faces/rina-board-cheerful-s-blush-pout.png'),
   },
   {
