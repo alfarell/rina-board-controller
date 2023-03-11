@@ -7,7 +7,6 @@ import {
   FlatList,
   Button,
   TouchableOpacity,
-  TouchableHighlight,
 } from 'react-native';
 import {AppColor} from '../../Data/Colors';
 import {faces} from '../../Data/FaceList';
@@ -49,9 +48,9 @@ const HomeScreen = ({navigation}) => {
               style={{padding: 10, width: '50%'}}
               activeOpacity={0.6}
               underlayColor="#DDDDDD"
-              onPress={() => sendFaceData(Number(`${page}${index}`))}>
+              onPress={() => sendFaceData(item.value)}>
               <Image
-                source={item}
+                source={item.image}
                 style={{
                   width: '100%',
                   height: undefined,

@@ -11,7 +11,7 @@ const Pages = () => {
     <>
       <NavigationContainer>
         <Stack.Navigator>
-          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Rina-chan Board" component={HomeScreen} />
           <Stack.Screen
             name="Bluetooth"
             component={BluetoothScreen}
